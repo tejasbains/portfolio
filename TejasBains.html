@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tejas Bains | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+        --bg: #F5F0E6;
+        --card: #ffffff;
+        --text: #2B3422;
+        --muted: #8C756A;
+        --accent: #B29B7E;
+        --accent-alt: #CC9A86;
+        --border: #dbc5a5;    
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; scroll-behavior: smooth; }
+    header { padding: 5rem 2rem 3rem; max-width: 1100px; margin: auto; animation: fadeDown 0.8s ease; }
+    header h1 { font-size: 3rem; font-weight: 700; letter-spacing: -1px; }
+    header p { margin-top: 1rem; max-width: 720px; color: var(--muted); font-size: 1.1rem; }
+    nav { margin-top: 1.75rem; }
+    nav a { color: var(--accent); margin-right: 1.5rem; text-decoration: none; font-weight: 500; position: relative; }
+    nav a::after { content: ""; position: absolute; bottom: -4px; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
+    nav a:hover::after { width: 100%; }
+    section { max-width: 1100px; margin: auto; padding: 3.5rem 2rem; opacity: 0; transform: translateY(30px); animation: fadeUp 0.8s ease forwards; }
+    section:nth-of-type(1) { animation-delay: 0.1s; }
+    section:nth-of-type(2) { animation-delay: 0.2s; }
+    section:nth-of-type(3) { animation-delay: 0.3s; }
+    section h2 { font-size: 2rem; margin-bottom: 1.75rem; border-bottom: 1px solid #1f2937; padding-bottom: 0.5rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.75rem; }
+    .card { background: var(--card); border-radius: 18px; overflow: hidden; box-shadow: 0 12px 30px rgba(0,0,0,0.35); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+    .card:hover { transform: translateY(-6px) scale(1.01); box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+    .card img { width: 100%; height: 180px; object-fit: cover; }
+    .card-content { padding: 1.5rem; }
+    .card h3 { font-size: 1.25rem; margin-bottom: 0.4rem; }
+    .card span { font-size: 0.9rem; color: var(--accent); }
+    .card p { margin-top: 0.75rem; color: var(--muted); font-size: 0.95rem; }
+
+    .modal { position: fixed; inset: 0; background: rgba(2,6,23,0.85); display: none; align-items: center; justify-content: center; z-index: 1000; animation: fadeIn 0.3s ease; overflow-y: auto; }
+    .modal.active { display: flex; }
+    .modal-box { background: var(--card); max-width: 800px; width: 90%; border-radius: 20px; padding: 2rem; position: relative; animation: scaleUp 0.35s ease; }
+    .modal-box img { width: 100%; border-radius: 14px; margin-bottom: 1.25rem; }
+    .close { position: absolute; top: 16px; right: 20px; font-size: 1.5rem; cursor: pointer; color: var(--muted); }
+    .input-group { margin-bottom: 1rem; }
+    .input-group label { display: block; margin-bottom: 0.3rem; color: var(--accent); }
+    .input-group input { width: 100%; padding: 0.5rem; border-radius: 8px; border: 1px solid #374151; background: #1f2937; color: var(--text); }
+    
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+    body {
+        font-family: 'Inter', sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+        scroll-behavior: smooth;
+    }
+    header {
+        padding: 5rem 2rem 3rem;
+        max-width: 1100px;
+        margin: auto;
+        animation: fadeDown 0.8s ease;
+    }
+    header h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        letter-spacing: -1px;
+    }
+    header p {
+        margin-top: 1rem;
+        max-width: 720px;
+        color: var(--muted);
+        font-size: 1.1rem;
+    }
+    nav {
+        margin-top: 1.75rem;
+    }
+    nav a {
+        color: var(--accent);
+        margin-right: 1.5rem;
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+    }
+    nav a::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+    }
+    nav a:hover::after {
+        width: 100%;
+    }
+    section {
+        max-width: 1100px;
+        margin: auto;
+        padding: 3.5rem 2rem;
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.8s ease forwards;
+    }
+    section:nth-of-type(1) {
+        animation-delay: 0.1s;
+    }
+    section:nth-of-type(2) {
+        animation-delay: 0.2s;
+    }
+
+    section:nth-of-type(3) {
+        animation-delay: 0.3s;
+    }
+    section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.75rem;
+        border-bottom: 1px solid #1f2937;
+        padding-bottom: 0.5rem;
+    }
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.75rem;
+    }
+    .card {
+        background: var(--card);
+        border-radius: 18px;
+        overflow: hidden;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+    .card:hover {
+        transform: translateY(-6px) scale(1.01);
+        box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+    }
+    .card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+    }
+    .card-content {
+        padding: 1.5rem;
+    }
+    .card h3 {
+        font-size: 1.25rem;
+        margin-bottom: 0.4rem;
+    }
+    .card span {
+        font-size: 0.9rem;
+        color: var(--accent);
+    }
+    .card p {
+        margin-top: 0.75rem;
+        color: var(--muted);
+        font-size: 0.95rem;
+    }
+    .modal {
+        position: fixed;
+        inset: 0;
+        background: rgba(2,6,23,0.85);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+        animation: fadeIn 0.3s ease;
+        overflow-y: auto;
+    }
+    .modal.active {
+        display: flex;
+    }
+    .modal-box {
+        background: var(--card);
+        max-width: 800px;
+        width: 90%;
+        border-radius: 20px;
+        padding: 2rem;
+        position: relative;
+        animation: scaleUp 0.35s ease;
+    }
+    .modal-box img {
+        width: 100%;
+        border-radius: 14px;
+        margin-bottom: 1.25rem;
+    }
+    .close {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: var(--muted);
+    }
+    .input-group {
+        margin-bottom: 1rem;
+    }
+    .input-group label {
+        display: block;
+        margin-bottom: 0.3rem;
+        color: var(--accent);
+    }
+    .input-group input {
+        width: 100%;
+        padding: 0.5rem;
+        border-radius: 8px;
+        border: 1px solid #374151;
+        background: #1f2937;
+        color: var(--text);
+    }
+    .input-group button {
+        margin-top: 1rem; 
+        padding: 0.6rem 1.2rem; 
+        border: none; 
+        border-radius: 10px; 
+        background: var(--accent); 
+        color: #000; 
+        font-weight: 600; 
+        cursor: pointer; 
+    }
+    .menu {
+        position: relative;
+        display: inline-block;
+    }
+    .menu-btn {
+        background: none;
+        border: none;
+        color: var(--accent);
+        font-weight: 500;
+        cursor: pointer;
+    }
+    .menu-dropdown {
+        display: none;
+        position: absolute;
+        top: 120%;
+        left: 0;
+        background: var(--card);
+        border-radius: 12px;
+        padding: 0.5rem 0;
+        min-width: 220px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        z-index: 1000;
+    }
+    .menu.hover-active .menu-dropdown {
+        display: block;
+    }
+    .submenu {
+        position: relative;
+        padding: 0.5rem 1rem;
+        cursor: default;
+    }
+    .submenu span {
+        display: block;
+        color: var(--text);
+        font-weight: 500;
+    }
+    .submenu-dropdown {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 100%;
+        background: var(--card);
+        border-radius: 12px;
+        padding: 0.5rem 0;
+        min-width: 220px;
+        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    }
+    .submenu:hover .submenu-dropdown {
+        display: block;
+    }
+    .menu-dropdown a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 0.95rem;
+    }
+    .menu-dropdown a:hover {
+        background: rgba(0,0,0,0.05);
+    }
+    
+    footer {
+        text-align: center; 
+        padding: 3rem 1rem; 
+        color: var(--muted); 
+        font-size: 0.9rem;
+    }
+
+    @keyframes fadeDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes scaleUp { from { transform: scale(0.95); } to { transform: scale(1); } }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav style="display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto;">
+    <div class="nav-left">
+      <a href="TejasBains.html" style="font-weight:700; font-size:1.25rem; color:var(--accent);">Home</a>
+
+      <div class="menu" id="menu">
+        <button class="menu-btn">Menu ▾</button>
+
+        <div class="menu-dropdown">
+            <div class="submenu">
+            <span>Experience ▸</span>
+            <div class="submenu-dropdown">
+                <a href="Firmware.html">Firmware – WARG</a>
+                <a href="Electrical.html">Electrical – WARG</a>
+            </div>
+            </div>
+
+            <div class="submenu">
+            <span>Projects ▸</span>
+            <div class="submenu-dropdown">
+                <a href="WebnovelScraper.html">Webnovel Scraper</a>
+                <a href="TicTacToe.html">TicTacToe</a>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+    <div class="nav-right">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* Dropdown hover */
+  .dropdown:hover .dropdown-content { display:block; }
+
+  /* Experience & project cards same image height */
+  .card img { width: 100%; height: 220px; object-fit: cover; }
+</style>
+<section id="about">
+    <h2>About Me</h2>
+    <p> 
+        CHANGE THIS
+    </p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="grid">
+    <a class="card" href="Firmware.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Firmware – WARG</h3>
+        <span>Jan 2025 – Present</span>
+        <p>STM32 firmware development using HAL, ADC, SPI, PWM motor control, and Git collaboration.</p>
+      </div>
+    </a>
+    <a class="card" href="Electrical.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Electrical – WARG</h3>
+        <span>Sept 2025 – Present</span>
+        <p>PCB design in Altium, custom footprints, and component selection for reliability and cost.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <a class="card" href="WebnovelScraper.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Webnovel Scraper</h3>
+        <span>Python</span>
+        <p>Converts web novels to EPUB. Click to specify book info and chapters.</p>
+      </div>
+    </a>
+    <a class="card" href="TicTacToe.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>TicTacToe</h3>
+        <span>C++</span>
+        <p>Console-based game using OOP and edge-case testing.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Webnovel Scraper Modal with Input Form -->
+<div class="modal" id="epub">
+  <div class="modal-box">
+    <div class="close" onclick="closeProject()">×</div>
+    <h3>Webnovel Scraper</h3>
+    <p>Fill out the form below to generate your EPUB (Python backend required).</p>
+    <div class="input-group">
+      <label for="mainUrl">Main Page URL</label>
+      <input id="mainUrl" type="text" placeholder="https://novelfire.net/..." />
+    </div>
+    <div class="input-group">
+      <label for="fileName">File Name</label>
+      <input id="fileName" type="text" placeholder="mybook.epub" />
+    </div>
+    <div class="input-group">
+      <label for="title">Book Title</label>
+      <input id="title" type="text" placeholder="Book Title" />
+    </div>
+    <div class="input-group">
+      <label for="author">Author</label>
+      <input id="author" type="text" placeholder="Author Name" />
+    </div>
+    <div class="input-group">
+      <label for="translate">Translate to English?</label>
+      <input id="translate" type="checkbox" />
+    </div>
+    <div class="input-group">
+      <label for="chapters">Number of Chapters</label>
+      <input id="chapters" type="number" placeholder="10" />
+    </div>
+    <div class="input-group">
+      <button onclick="submitScraper()">Submit to Python Backend</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="ttt">
+  <div class="modal-box">
+    <div class="close" onclick="closeProject()">×</div>
+    <img src="https://via.placeholder.com/900x500" />
+    <h3>TicTacToe</h3>
+    <p>C++ console game with object-oriented principles, optimized logic, and full edge-case testing.</p>
+  </div>
+</div>
+
+<footer>© 2026 Tejas Bains · Built with HTML, CSS & JS</footer>
+
+<script>
+  function openProject(id) { document.getElementById(id).classList.add('active'); }
+  function closeProject() { document.querySelectorAll('.modal').forEach(m => m.classList.remove('active')); }
+  window.addEventListener('keydown', e => { if(e.key==='Escape') closeProject(); });
+
+  function submitScraper() {
+    const data = {
+      mainUrl: document.getElementById('mainUrl').value,
+      fileName: document.getElementById('fileName').value,
+      title: document.getElementById('title').value,
+      author: document.getElementById('author').value,
+      translate: document.getElementById('translate').checked,
+      chapters: document.getElementById('chapters').value
+    };
+    console.log('Submit data to backend:', data);
+    alert('This would be sent to your Python backend for processing.');
+  }
+</script>
+
+<script>
+    const menu = document.getElementById("menu");
+    const dropdown = menu.querySelector(".menu-dropdown");
+
+    let closeTimer = null;
+
+    function openMenu() {
+    if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+    }
+    menu.classList.add("hover-active");
+    }
+
+    function closeMenu() {
+    closeTimer = setTimeout(() => {
+        menu.classList.remove("hover-active");
+    }, 100);
+    }
+
+    // listen to both menu button AND dropdown
+    menu.addEventListener("mouseenter", openMenu);
+    menu.addEventListener("mouseleave", closeMenu);
+    dropdown.addEventListener("mouseenter", openMenu);
+    dropdown.addEventListener("mouseleave", closeMenu);
+</script>
+
+</body>
+</html>
