@@ -1,0 +1,355 @@
+/* Root Variables */
+:root {
+	--bg: #F5F0E6;
+	--card: #ffffff;
+	--text: #2B3422;
+	--muted: #8C756A;
+	--accent: #B29B7E;
+	--accent-alt: #CC9A86;
+	--border: #dbc5a5;
+}
+
+/* Global Reset */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* For index page */
+body {
+	/* general styles for all pages */
+	font-family: 'Inter', sans-serif;
+	background: var(--bg);
+	color: var(--text);
+	line-height: 1.6;
+	scroll-behavior: smooth;
+}
+
+/* Index-specific */
+body.index header {
+	padding: 5rem 2rem 3rem;
+	max-width: 1100px;
+	margin: auto;
+}
+
+/* Subsection pages */
+body.subsection header {
+	padding: 2rem;
+	max-width: 1100px;
+	margin: auto;
+}
+
+body.subsection main {
+	max-width: 900px;
+	margin: auto;
+	padding: 2rem;
+	animation: fadeUp 0.6s ease forwards;
+}
+
+/* Header and Navigation */
+header {
+	max-width: 1100px;
+	margin: auto;
+	padding: 2rem;
+	animation: fadeDown 0.8s ease;
+}
+
+header h1 {
+	font-size: 3rem;
+	font-weight: 700;
+	letter-spacing: -1px;
+}
+
+header p {
+	margin-top: 1rem;
+	max-width: 720px;
+	color: var(--muted);
+	font-size: 1.1rem;
+}
+
+nav {
+	margin-top: 1.75rem;
+}
+
+nav a {
+	color: var(--accent);
+	margin-right: 1.5rem;
+	text-decoration: none;
+	font-weight: 500;
+	position: relative;
+}
+
+nav a::after {
+	content: "";
+	position: absolute;
+	bottom: -4px;
+	left: 0;
+	width: 0;
+	height: 2px;
+	background: var(--accent);
+	transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+	width: 100%;
+}
+
+/* Sections */
+section {
+	max-width: 1100px;
+	margin: auto;
+	padding: 3.5rem 2rem;
+	opacity: 0;
+	transform: translateY(30px);
+	animation: fadeUp 0.8s ease forwards;
+}
+
+section:nth-of-type(1) { animation-delay: 0.1s; }
+section:nth-of-type(2) { animation-delay: 0.2s; }
+section:nth-of-type(3) { animation-delay: 0.3s; }
+
+section h2 {
+	font-size: 2rem;
+	margin-bottom: 1.75rem;
+	border-bottom: 1px solid #1f2937;
+	padding-bottom: 0.5rem;
+}
+
+/* Grid / Cards */
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 1.75rem;
+}
+
+.card {
+	background: var(--card);
+	border-radius: 18px;
+	overflow: hidden;
+	box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	cursor: pointer;
+}
+
+.card:hover {
+	transform: translateY(-6px) scale(1.01);
+	box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+}
+
+.card img {
+	width: 100%;
+	height: 180px;
+	object-fit: cover;
+}
+
+.card-content {
+	padding: 1.5rem;
+}
+
+.card h3 {
+	font-size: 1.25rem;
+	margin-bottom: 0.4rem;
+}
+
+.card span {
+	font-size: 0.9rem;
+	color: var(--accent);
+}
+
+.card p {
+	margin-top: 0.75rem;
+	color: var(--muted);
+	font-size: 0.95rem;
+}
+
+/* Modal */
+.modal {
+	position: fixed;
+	inset: 0;
+	background: rgba(2,6,23,0.85);
+	display: none;
+	align-items: center;
+	justify-content: center;
+	z-index: 1000;
+	animation: fadeIn 0.3s ease;
+	overflow-y: auto;
+}
+
+.modal.active { display: flex; }
+
+.modal-box {
+	background: var(--card);
+	max-width: 800px;
+	width: 90%;
+	border-radius: 20px;
+	padding: 2rem;
+	position: relative;
+	animation: scaleUp 0.35s ease;
+}
+
+.modal-box img {
+	width: 100%;
+	border-radius: 14px;
+	margin-bottom: 1.25rem;
+}
+
+.close {
+	position: absolute;
+	top: 16px;
+	right: 20px;
+	font-size: 1.5rem;
+	cursor: pointer;
+	color: var(--muted);
+}
+
+/* Input Groups */
+.input-group {
+	margin-bottom: 1rem;
+}
+
+.input-group label {
+	display: block;
+	margin-bottom: 0.3rem;
+	color: var(--accent);
+}
+
+.input-group input {
+	width: 100%;
+	padding: 0.5rem;
+	border-radius: 8px;
+	border: 1px solid #374151;
+	background: #1f2937;
+	color: var(--text);
+}
+
+.input-group button {
+	margin-top: 1rem;
+	padding: 0.6rem 1.2rem;
+	border: none;
+	border-radius: 10px;
+	background: var(--accent);
+	color: #000;
+	font-weight: 600;
+	cursor: pointer;
+}
+
+/* Menu / Dropdown */
+.menu {
+	position: relative;
+	display: inline-block;
+}
+
+.menu-btn {
+	background: none;
+	border: none;
+	color: var(--accent);
+	font-weight: 500;
+	cursor: pointer;
+}
+
+.menu-dropdown {
+	display: none;
+	position: absolute;
+	top: 120%;
+	left: 0;
+	background: var(--card);
+	border-radius: 12px;
+	padding: 0.5rem 0;
+	min-width: 220px;
+	box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+	z-index: 1000;
+}
+
+.menu.hover-active .menu-dropdown { display: block; }
+
+.submenu {
+	position: relative;
+	padding: 0.5rem 1rem;
+	cursor: default;
+}
+
+.submenu span {
+	display: block;
+	color: var(--text);
+	font-weight: 500;
+}
+
+.submenu-dropdown {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 100%;
+	background: var(--card);
+	border-radius: 12px;
+	padding: 0.5rem 0;
+	min-width: 220px;
+	box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.submenu:hover .submenu-dropdown { display: block; }
+
+.menu-dropdown a {
+	display: block;
+	padding: 0.5rem 1rem;
+	color: var(--text);
+	text-decoration: none;
+	font-size: 0.95rem;
+}
+
+.menu-dropdown a:hover { background: rgba(0,0,0,0.05); }
+
+/* Footer */
+footer {
+	text-align: center;
+	padding: 2rem;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+/* Keyframes */
+@keyframes fadeDown { 
+    from { 
+        opacity: 0; 
+        transform: translateY(-30px); 
+    } to { 
+        opacity: 1; 
+        transform: 
+        translateY(0); 
+    } 
+}
+@keyframes fadeUp { 
+    from { opacity: 0; 
+        transform: translateY(30px); 
+    } to { opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
+
+@keyframes fadeIn { 
+    from { 
+        opacity: 0; 
+    } to { opacity: 1; 
+    } 
+}
+@keyframes scaleUp { 
+    from 
+        { transform: scale(0.95); 
+    } to { 
+    transform: scale(1); 
+    } 
+}
+
+/* Experience & Project Card Height Override */
+.card img { height: 220px; object-fit: cover; }
+
+.image-placeholder {
+	width: 100%;
+	height: 400px;
+	border-radius: 18px;
+	border: 1px dashed var(--border);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 2rem;
+}

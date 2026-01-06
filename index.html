@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tejas Bains | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="index">
+<header>
+  <nav style="display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto;">
+    <div class="nav-left">
+      <a href="index.html" style="font-weight:700; font-size:1.25rem; color:var(--accent);">Home</a>
+
+      <div class="menu" id="menu">
+        <button class="menu-btn">Menu ▾</button>
+
+        <div class="menu-dropdown">
+            <div class="submenu">
+            <span>Experience ▸</span>
+            <div class="submenu-dropdown">
+                <a href="subsections/firmware.html">Firmware – WARG</a>
+                <a href="subsections/electrical.html">Electrical – WARG</a>
+            </div>
+            </div>
+
+            <div class="submenu">
+            <span>Projects ▸</span>
+            <div class="submenu-dropdown">
+                <a href="subsections/webnovel_scraper.html">Webnovel Scraper</a>
+                <a href="subsections/tictactoe.html">TicTacToe</a>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+    </div>
+    <h1 class="hero-name">Tejas Bains</h1>
+    <div class="nav-right">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  /* Dropdown hover */
+  .dropdown:hover .dropdown-content { display:block; }
+
+  /* Experience & project cards same image height */
+  .card img { width: 100%; height: 220px; object-fit: cover; }
+</style>
+<section id="about">
+    <h2>About Me</h2>
+    <p> 
+        CHANGE THIS
+    </p>
+</section>
+
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="grid">
+    <a class="card" href="subsections/firmware.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Firmware – WARG</h3>
+        <span>Jan 2025 – Present</span>
+        <p>STM32 firmware development using HAL, ADC, SPI, PWM motor control, and Git collaboration.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/electrical.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Electrical – WARG</h3>
+        <span>Sept 2025 – Present</span>
+        <p>PCB design in Altium, custom footprints, and component selection for reliability and cost.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/drawing_robot.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Drawing Robot</h3>
+        <span>Sept 2025 – November 2025</span>
+        <p>A robot to autonomously draw basic shapes or follow joystick input for freehand drawing.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>Projects</h2>
+  <div class="grid">
+    <a class="card" href="subsections/webnovel_scraper.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>Webnovel Scraper</h3>
+        <span>Python</span>
+        <p>Converts web novels to EPUB. Click to specify book info and chapters.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/portfolio.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>This Portfoilio</h3>
+        <span>Python</span>
+        <p>A neat little website to host deatiled information on my creations.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/tictactoe.html">
+      <img src="https://via.placeholder.com/800x500">
+      <div class="card-content">
+        <h3>TicTacToe</h3>
+        <span>C++</span>
+        <p>Console-based game using OOP and edge-case testing.</p>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Webnovel Scraper Modal with Input Form -->
+<div class="modal" id="epub">
+  <div class="modal-box">
+    <div class="close" onclick="closeProject()">×</div>
+    <h3>Webnovel Scraper</h3>
+    <p>Fill out the form below to generate your EPUB (Python backend required).</p>
+    <div class="input-group">
+      <label for="mainUrl">Main Page URL</label>
+      <input id="mainUrl" type="text" placeholder="https://novelfire.net/..." />
+    </div>
+    <div class="input-group">
+      <label for="fileName">File Name</label>
+      <input id="fileName" type="text" placeholder="mybook.epub" />
+    </div>
+    <div class="input-group">
+      <label for="title">Book Title</label>
+      <input id="title" type="text" placeholder="Book Title" />
+    </div>
+    <div class="input-group">
+      <label for="author">Author</label>
+      <input id="author" type="text" placeholder="Author Name" />
+    </div>
+    <div class="input-group">
+      <label for="translate">Translate to English?</label>
+      <input id="translate" type="checkbox" />
+    </div>
+    <div class="input-group">
+      <label for="chapters">Number of Chapters</label>
+      <input id="chapters" type="number" placeholder="10" />
+    </div>
+    <div class="input-group">
+      <button onclick="submitScraper()">Submit to Python Backend</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="ttt">
+  <div class="modal-box">
+    <div class="close" onclick="closeProject()">×</div>
+    <img src="https://via.placeholder.com/900x500" />
+    <h3>TicTacToe</h3>
+    <p>C++ console game with object-oriented principles, optimized logic, and full edge-case testing.</p>
+  </div>
+</div>
+
+<footer>© 2025 Tejas Bains · Built with HTML, CSS & JS</footer>
+
+<script>
+  function openProject(id) { document.getElementById(id).classList.add('active'); }
+  function closeProject() { document.querySelectorAll('.modal').forEach(m => m.classList.remove('active')); }
+  window.addEventListener('keydown', e => { if(e.key==='Escape') closeProject(); });
+
+  function submitScraper() {
+    const data = {
+      mainUrl: document.getElementById('mainUrl').value,
+      fileName: document.getElementById('fileName').value,
+      title: document.getElementById('title').value,
+      author: document.getElementById('author').value,
+      translate: document.getElementById('translate').checked,
+      chapters: document.getElementById('chapters').value
+    };
+    console.log('Submit data to backend:', data);
+    alert('This would be sent to your Python backend for processing.');
+  }
+</script>
+
+<script>
+    const menu = document.getElementById("menu");
+    const dropdown = menu.querySelector(".menu-dropdown");
+
+    let closeTimer = null;
+
+    function openMenu() {
+    if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+    }
+    menu.classList.add("hover-active");
+    }
+
+    function closeMenu() {
+    closeTimer = setTimeout(() => {
+        menu.classList.remove("hover-active");
+    }, 100);
+    }
+
+    // listen to both menu button AND dropdown
+    menu.addEventListener("mouseenter", openMenu);
+    menu.addEventListener("mouseleave", closeMenu);
+    dropdown.addEventListener("mouseenter", openMenu);
+    dropdown.addEventListener("mouseleave", closeMenu);
+</script>
+
+</body>
+</html>
