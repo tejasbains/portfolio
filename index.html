@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="imagges/favicon.png">
   <title>Tejas Bains | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
@@ -23,6 +24,7 @@
             <div class="submenu-dropdown">
                 <a href="subsections/firmware.html">Firmware – WARG</a>
                 <a href="subsections/electrical.html">Electrical – WARG</a>
+                <a href="subsections/drawing_robot.html">Drawing Robot</a>
             </div>
             </div>
 
@@ -30,6 +32,7 @@
             <span>Projects ▸</span>
             <div class="submenu-dropdown">
                 <a href="subsections/webnovel_scraper.html">Webnovel Scraper</a>
+                <a href="subsections/portfolio.html">Portfolio Website</a>
                 <a href="subsections/tictactoe.html">TicTacToe</a>
             </div>
             </div>
@@ -57,7 +60,9 @@
 <section id="about">
     <h2>About Me</h2>
     <p> 
-        CHANGE THIS
+      I am a first year mechatronics engineering student at the University of Waterloo.
+      I love to read, play board games, and program!
+      You can find my experience and projects below. 
     </p>
 </section>
 
@@ -65,23 +70,23 @@
   <h2>Experience</h2>
   <div class="grid">
     <a class="card" href="subsections/firmware.html">
-      <img src="https://via.placeholder.com/800x500">
+      <img src="images/firmware.jpg">
       <div class="card-content">
         <h3>Firmware – WARG</h3>
         <span>Jan 2025 – Present</span>
-        <p>STM32 firmware development using HAL, ADC, SPI, PWM motor control, and Git collaboration.</p>
+        <p>STM32 firmware development involving HAL, ADC, SPI, PWM motor control, and Git collaboration.</p>
       </div>
     </a>
     <a class="card" href="subsections/electrical.html">
-      <img src="https://via.placeholder.com/800x500">
+      <img src="images/electrical.jpg">
       <div class="card-content">
         <h3>Electrical – WARG</h3>
         <span>Sept 2025 – Present</span>
-        <p>PCB design in Altium, custom footprints, and component selection for reliability and cost.</p>
+        <p>PCB design in Altium, custom footprints/symbols, and component selection for reliability and cost.</p>
       </div>
     </a>
     <a class="card" href="subsections/drawing_robot.html">
-      <img src="https://via.placeholder.com/800x500">
+      <img src="images/dron on top drawing.jpg">
       <div class="card-content">
         <h3>Drawing Robot</h3>
         <span>Sept 2025 – November 2025</span>
@@ -95,27 +100,27 @@
   <h2>Projects</h2>
   <div class="grid">
     <a class="card" href="subsections/webnovel_scraper.html">
-      <img src="https://via.placeholder.com/800x500">
+      <img src="images/books.jpg">
       <div class="card-content">
         <h3>Webnovel Scraper</h3>
         <span>Python</span>
-        <p>Converts web novels to EPUB. Click to specify book info and chapters.</p>
+        <p>Converts web novels to EPUBs. Click to specify book info and chapters.</p>
       </div>
     </a>
     <a class="card" href="subsections/portfolio.html">
-      <img src="https://via.placeholder.com/800x500">
+      <img src="images/worldwideweb.jpg">
       <div class="card-content">
         <h3>This Portfoilio</h3>
-        <span>Python</span>
+        <span>html/css/java</span>
         <p>A neat little website to host deatiled information on my creations.</p>
       </div>
     </a>
     <a class="card" href="subsections/tictactoe.html">
-      <img src="https://via.placeholder.com/800x500">
+      <img src="images/tictactoe.png">
       <div class="card-content">
         <h3>TicTacToe</h3>
         <span>C++</span>
-        <p>Console-based game using OOP and edge-case testing.</p>
+        <p>Console-based tictactoe game using OOP.</p>d
       </div>
     </a>
   </div>
@@ -166,53 +171,24 @@
   </div>
 </div>
 
+<section id="socials">
+  <h2>Socials</h2>
+  <p>
+    <a href="https://github.com/tejasbains" target="_blank" rel="noopener">
+      GitHub
+    </a>
+    <br>
+    <a href="https://www.linkedin.com/in/tejas-bains-466809323/" target="_blank" rel="noopener">
+      LinkdIn
+    </a>
+    <br>
+    <a href="https://www.goodreads.com/user/show/97898112-tejb12" target="_blank" rel="noopener">
+      GoodReads (very important!)
+    </a>
+  </p>
+</section>
+
 <footer>© 2025 Tejas Bains · Built with HTML, CSS & JS</footer>
-
-<script>
-  function openProject(id) { document.getElementById(id).classList.add('active'); }
-  function closeProject() { document.querySelectorAll('.modal').forEach(m => m.classList.remove('active')); }
-  window.addEventListener('keydown', e => { if(e.key==='Escape') closeProject(); });
-
-  function submitScraper() {
-    const data = {
-      mainUrl: document.getElementById('mainUrl').value,
-      fileName: document.getElementById('fileName').value,
-      title: document.getElementById('title').value,
-      author: document.getElementById('author').value,
-      translate: document.getElementById('translate').checked,
-      chapters: document.getElementById('chapters').value
-    };
-    console.log('Submit data to backend:', data);
-    alert('This would be sent to your Python backend for processing.');
-  }
-</script>
-
-<script>
-    const menu = document.getElementById("menu");
-    const dropdown = menu.querySelector(".menu-dropdown");
-
-    let closeTimer = null;
-
-    function openMenu() {
-    if (closeTimer) {
-        clearTimeout(closeTimer);
-        closeTimer = null;
-    }
-    menu.classList.add("hover-active");
-    }
-
-    function closeMenu() {
-    closeTimer = setTimeout(() => {
-        menu.classList.remove("hover-active");
-    }, 100);
-    }
-
-    // listen to both menu button AND dropdown
-    menu.addEventListener("mouseenter", openMenu);
-    menu.addEventListener("mouseleave", closeMenu);
-    dropdown.addEventListener("mouseenter", openMenu);
-    dropdown.addEventListener("mouseleave", closeMenu);
-</script>
-
+<script src="js/main.js" defer></script>
 </body>
 </html>

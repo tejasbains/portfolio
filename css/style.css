@@ -353,3 +353,9 @@ footer {
 	justify-content: center;
 	margin-bottom: 2rem;
 }
+
+.fit-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
