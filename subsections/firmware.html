@@ -16,24 +16,53 @@
 </header>
 
 <main>
-  <h1>Firmware – Waterloo Aerial Robotics Group</h1>
+  <h1>Waterloo Aerial Robotics Group</h1>
 
   <div class="about">
     <p>
-      Member of the WARG design team on the firmware subteam. 
-      Responsible for various tasks such as SPI communication between hardware. 
-      Past projects include creating a program in C using STM32Cube to convert potentiometer values to a PWM signal 
-      to control a motor using SPI communication.
-      Check it out on my github
-      <a href="https://github.com/tejasbains/embedded-bootcamp"> here </a>
-      , pin configuration using STM32Cube below.
+      I am a member of the WARG firmware and electrical subteams, and I work on embedded systems, PCB design, and validation for custom drone hardware. The projects below are the major WARG efforts I have contributed to, ordered by the latest firmware resume information and written as sentence-form summaries.
     </p>
   </div>
 
-  <div class="image-placeholder">
-    <img src="../images/pinconfig.png" alt="Firmware schematic"class="fit-image">
-  </div>
+  <section>
+    <h2>CAN Flight State LED Indicator</h2>
+    <p>
+      I developed the CAN firmware for the LED system to provide visual feedback about the aircraft flight state, including takeoff, landing, and other operating states. I validated the firmware on physical PCBs using STM32CubeDebugger to fix internal handling issues and confirm correct behavior under real hardware conditions. I used an agentic AI workflow to inspect linker map artifacts and diagnose memory-alignment issues in WARG's DroneCAN/UAVCAN support layer, PineCAN. I also created Lua test scripts to streamline validation, and I enabled users to flash the board through VS Code using the CMake and ARM GNU toolchain.
+    </p>
+    <div class="image-placeholder">
+      <img src="../images/can LED.png" alt="CAN flight state LED indicator" class="fit-image">
+    </div>
+  </section>
 
+  <section>
+    <h2>USB-to-CAN Converter</h2>
+    <p>
+      I designed a custom USB-to-CAN adapter that enabled direct board flashing by translating USB serial traffic into CAN bus communication. I implemented an SLCAN parsing library so serial host commands could be converted into native CAN messages with the correct timing and structure. I focused on robust communication through sequencing, acknowledgements, retries, CRC checks, and bootloader control so the firmware update path was reliable.
+    </p>
+    <div class="image-placeholder">
+      <img src="../images/usb.jpg" alt="USB-to-CAN converter" class="fit-image">
+    </div>
+  </section>
+
+  <section>
+    <h2>Potentiometer-to-PWM Motor Tester</h2>
+    <p>
+      I implemented STM32 firmware to test motors at different speeds by mapping potentiometer readings to a PWM signal. I configured the SPI library to communicate with the MCP3004 ADC and read the potentiometer value accurately. I used a DMM to verify the RMS output voltage at different potentiometer states and confirm the expected PWM behavior.
+    </p>
+    <div class="image-placeholder">
+      <img src="../images/potentiometer to pwm pinconfig.png" alt="Potentiometer-to-PWM motor tester" class="fit-image">
+    </div>
+  </section>
+
+  <section>
+    <h2>Battery Voltage Regulator</h2>
+    <p>
+      I designed a PCB in Altium to regulate battery voltage for an accelerometer using an LDO. I referenced supplier datasheets to create custom symbols and footprints for connectors and integrated circuits. This work improved the power path reliability and supported the sensor subsystem on the hardware platform.
+    </p>
+    <div class="image-placeholder">
+      <img src="../images/LDO pcb.png" alt="Battery voltage regulator PCB" class="fit-image">
+    </div>
+  </section>
 
 </main>
 

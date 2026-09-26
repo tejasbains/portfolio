@@ -10,7 +10,7 @@
 </head>
 
 <body class="index">
-<header>
+<header id="top">
   <nav style="display:flex; justify-content:space-between; align-items:center; max-width:1100px; margin:auto;">
     <div class="nav-left">
       <a href="index.html" style="font-weight:700; font-size:1.25rem; color:var(--accent);">Home</a>
@@ -22,17 +22,23 @@
             <div class="submenu">
             <span>Experience ▸</span>
             <div class="submenu-dropdown">
-                <a href="subsections/firmware.html">Firmware – WARG</a>
-                <a href="subsections/electrical.html">Electrical – WARG</a>
-                <a href="subsections/drawing_robot.html">Drawing Robot</a>
+                <a href="subsections/firmware.html">Firmware &amp; Electrical – WARG</a>
+                <a href="subsections/electrical.html">Systems Quality Assurance Co-op</a>
             </div>
             </div>
 
             <div class="submenu">
             <span>Projects ▸</span>
             <div class="submenu-dropdown">
+                <a href="subsections/firmware.html">CAN Flight State LED Indicator</a>
+                <a href="subsections/firmware.html">USB-to-CAN Converter</a>
+                <a href="https://github.com/tejasbains/Campus-Compass-Event-Searcher" target="_blank" rel="noopener">Campus Compass Event Searcher</a>
+                <a href="subsections/drawing_robot.html">Drawing Robot</a>
+                <a href="subsections/firmware.html">Potentiometer-to-PWM Motor Tester</a>
+                <a href="subsections/firmware.html">Battery Voltage Regulator</a>
+                <a href="https://github.com/tejasbains/Chaos-Engine-Proxy" target="_blank" rel="noopener">Web Traffic Simulator</a>
                 <a href="subsections/webnovel_scraper.html">Webnovel Scraper</a>
-                <a href="subsections/portfolio.html">Portfolio Website</a>
+                <a href="subsections/portfolio.html">This Portfolio</a>
                 <a href="subsections/tictactoe.html">TicTacToe</a>
             </div>
             </div>
@@ -72,25 +78,19 @@
     <a class="card" href="subsections/firmware.html">
       <img src="images/firmware.jpg">
       <div class="card-content">
-        <h3>Firmware – WARG</h3>
-        <span>Jan 2025 – Present</span>
-        <p>STM32 firmware development involving HAL, ADC, SPI, PWM motor control, and Git collaboration.</p>
+        <h3>Firmware &amp; Electrical</h3>
+        <p class="company-tab">Waterloo Aerial Robotics Group</p>
+        <span>Sept 2025 – Present</span>
+        <p>Embedded CAN firmware, motor testing, and PCB design work for custom drone hardware in Waterloo Aerial Robotics Group.</p>
       </div>
     </a>
     <a class="card" href="subsections/electrical.html">
       <img src="images/electrical.jpg">
       <div class="card-content">
-        <h3>Electrical – WARG</h3>
-        <span>Sept 2025 – Present</span>
-        <p>PCB design in Altium, custom footprints/symbols, and component selection for reliability and cost.</p>
-      </div>
-    </a>
-    <a class="card" href="subsections/drawing_robot.html">
-      <img src="images/dron on top drawing.jpg">
-      <div class="card-content">
-        <h3>Drawing Robot</h3>
-        <span>Sept 2025 – November 2025</span>
-        <p>A robot to autonomously draw basic shapes or follow joystick input for freehand drawing.</p>
+        <h3>Systems Quality Assurance Co-op</h3>
+        <p class="company-tab">Virtek Vision International</p>
+        <span>May 2026 – Aug 2026</span>
+        <p>Maintained automated QA workflows, debugged backend issues, and ran broad regression coverage for a hardware-software system.</p>
       </div>
     </a>
   </div>
@@ -99,28 +99,84 @@
 <section id="projects">
   <h2>Projects</h2>
   <div class="grid">
+    <a class="card" href="subsections/firmware.html">
+      <img src="images/can LED.png" alt="CAN flight state LED indicator">
+      <div class="card-content">
+        <h3>CAN Flight State LED Indicator</h3>
+        <span>C/C++, DroneCAN, Lua</span>
+        <p>Built CAN lighting firmware that translated aircraft state into visual system feedback for the flight team.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/firmware.html">
+      <img src="images/usb.jpg" alt="USB-to-CAN converter">
+      <div class="card-content">
+        <h3>USB-to-CAN Converter</h3>
+        <span>C/C++, USB, SLCAN</span>
+        <p>Created an in-house USB-to-CAN bridge for direct firmware flashing and bus-level debugging.</p>
+      </div>
+    </a>
+    <a class="card" href="https://github.com/tejasbains/Campus-Compass-Event-Searcher" target="_blank" rel="noopener">
+      <img src="images/Campus Compass.png" alt="Campus Compass Event Searcher">
+      <div class="card-content">
+        <h3>Campus Compass Event Searcher</h3>
+        <span>Next.js, React, TypeScript</span>
+        <p>Developed a campus events platform with filters, sorting, and explainable recommendation logic.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/drawing_robot.html">
+      <img src="images/dron on top drawing.jpg">
+      <div class="card-content">
+        <h3>Drawing Robot</h3>
+        <span>Nov 2025</span>
+        <p>A VEX IQ two-axis drawing robot with joystick-driven motion, geometric routines, and safety-aware control logic.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/firmware.html">
+      <img src="images/potentiometer to pwm pinconfig.png" alt="Potentiometer-to-PWM motor tester">
+      <div class="card-content">
+        <h3>Potentiometer-to-PWM Motor Tester</h3>
+        <span>C, STM32, SPI</span>
+        <p>Mapped potentiometer input to a PWM output to validate motor speed and response through SPI and timer logic.</p>
+      </div>
+    </a>
+    <a class="card" href="subsections/firmware.html">
+      <img src="images/LDO pcb.png" alt="Battery voltage regulator PCB">
+      <div class="card-content">
+        <h3>Battery Voltage Regulator</h3>
+        <span>PCB, Altium</span>
+        <p>Designed a board to regulate battery voltage to an accelerometer using an LDO and custom PCB symbols.</p>
+      </div>
+    </a>
+    <a class="card" href="https://github.com/tejasbains/Chaos-Engine-Proxy" target="_blank" rel="noopener">
+      <div class="card-image-placeholder">Proxy</div>
+      <div class="card-content">
+        <h3>Web Traffic Simulator</h3>
+        <span>C++, TCP, Winsock</span>
+        <p>Built a non-blocking Windows TCP proxy and workload generator that simulates high-volume API traffic.</p>
+      </div>
+    </a>
     <a class="card" href="subsections/webnovel_scraper.html">
-      <img src="images/books.jpg">
+      <img src="images/convertedwebnovel.png" alt="Webnovel Scraper output">
       <div class="card-content">
         <h3>Webnovel Scraper</h3>
         <span>Python</span>
-        <p>Converts web novels to EPUBs. Click to specify book info and chapters.</p>
+        <p>Converted serialized online fiction into EPUB files by parsing chapter content and metadata.</p>
       </div>
     </a>
     <a class="card" href="subsections/portfolio.html">
-      <img src="images/worldwideweb.jpg">
+      <img src="images/portfolioss.png" alt="Portfolio website screenshot">
       <div class="card-content">
-        <h3>This Portfoilio</h3>
-        <span>html/css/java</span>
-        <p>A neat little website to host deatiled information on my creations.</p>
+        <h3>This Portfolio</h3>
+        <span>HTML/CSS/JS</span>
+        <p>A focused website to document projects, experiences, and technical work in a clean presentation.</p>
       </div>
     </a>
     <a class="card" href="subsections/tictactoe.html">
-      <img src="images/tictactoe.png">
+      <img src="images/tictactoe.png" alt="TicTacToe game">
       <div class="card-content">
         <h3>TicTacToe</h3>
         <span>C++</span>
-        <p>Console-based tictactoe game using OOP.</p>
+        <p>Console-based Tic-Tac-Toe built around OOP design and complete game-state logic.</p>
       </div>
     </a>
   </div>
@@ -188,7 +244,9 @@
   </p>
 </section>
 
-<footer>© 2025 Tejas Bains · Built with HTML, CSS & JS</footer>
+<a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top">↑</a>
+
+<footer>© 2025 Tejas Bains · Built with HTML, CSS, & JS</footer>
 <script src="js/main.js" defer></script>
 </body>
 </html>

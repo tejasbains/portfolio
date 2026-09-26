@@ -13,6 +13,15 @@ window.addEventListener("keydown", e => {
   if (e.key === "Escape") closeProject();
 });
 
+const backToTop = document.querySelector(".back-to-top");
+
+function updateBackToTopVisibility() {
+  backToTop.classList.toggle("visible", window.scrollY > 400);
+}
+
+window.addEventListener("scroll", updateBackToTopVisibility, { passive: true });
+updateBackToTopVisibility();
+
 // Webnovel scraper demo
 function submitScraper() {
   const data = {

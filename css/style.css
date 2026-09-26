@@ -95,6 +95,42 @@ nav a:hover::after {
 	width: 100%;
 }
 
+.back-to-top {
+	position: fixed;
+	right: 1.5rem;
+	bottom: 1.5rem;
+	width: 3rem;
+	height: 3rem;
+	display: grid;
+	place-items: center;
+	border: 1px solid var(--border);
+	border-radius: 50%;
+	background: var(--card);
+	color: var(--text);
+	box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+	font-size: 1.5rem;
+	line-height: 1;
+	text-decoration: none;
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(0.75rem);
+	transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+	z-index: 900;
+}
+
+.back-to-top.visible {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
+
+.back-to-top:hover,
+.back-to-top:focus-visible {
+	background: var(--accent);
+	color: #000;
+	outline: none;
+}
+
 /* Sections */
 section {
 	max-width: 1100px;
@@ -147,9 +183,39 @@ section h2 {
 	padding: 1.5rem;
 }
 
+.card-image-placeholder {
+	width: 100%;
+	height: 220px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(135deg, rgba(178,155,126,0.2), rgba(204,154,134,0.25));
+	border-bottom: 1px solid rgba(0,0,0,0.08);
+	color: var(--muted);
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.12em;
+	text-transform: uppercase;
+}
+
 .card h3 {
 	font-size: 1.25rem;
 	margin-bottom: 0.4rem;
+}
+
+.card .company-tab {
+	display: flex;
+	width: fit-content;
+	align-items: center;
+	margin: 0 0 0.6rem;
+	padding: 0.2rem 0.65rem;
+	border: 1px solid var(--border);
+	border-radius: 999px;
+	background: rgba(178, 155, 126, 0.14);
+	color: var(--text);
+	font-size: 0.8rem;
+	font-weight: 600;
+	line-height: 1.35;
 }
 
 .card span {
@@ -358,4 +424,11 @@ footer {
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
+}
+
+@media (max-width: 600px) {
+	.back-to-top {
+		right: 1rem;
+		bottom: 1rem;
+	}
 }
